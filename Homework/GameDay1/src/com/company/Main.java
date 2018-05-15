@@ -36,7 +36,6 @@ public class Main {
                 case "x":
                     return;
             }
-            ;
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 4; j++) {
                     if ((i == xP) && (j == yP)) System.out.print('P');
