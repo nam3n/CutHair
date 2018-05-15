@@ -10,22 +10,26 @@ public class Main {
         int xP = 0, yP = 3;
         int xE1, xE2, yE1, yE2, xG, yG;
         Random random = new Random();
+        // create enemy1
         while (true) {
             xE1 = random.nextInt(4);
             yE1 = random.nextInt(4);
             if ((xE1 != xP) || (yE1 != yP)) break;
         }
+        // create enemy2
         while (true) {
             xE2 = random.nextInt(4);
             yE2 = random.nextInt(4);
             if (((xE2 != xP) || (yE2 != yP)) && ((xE2 != xE1) || (yE2 != yE1))) break;
         }
+        // create gift
         while (true) {
             xG = random.nextInt(4);
             yG = random.nextInt(4);
             if (((xG != xP) || (yG != yP)) && ((xG != xE1) || (yG != yE1)) && ((xG != xE2) || (yG != yE2)))
                 break;
         }
+        // show map
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (((i == xE1) && (j == yE1)) || ((i == xE2) && (j == yE2)))
@@ -39,8 +43,11 @@ public class Main {
             }
             System.out.println();
         }
+        // game loop
         while (true) {
+            // handle event
             String  a = scanner.next();
+            // update game state
             switch (a) {
                 case "a":
                     if (yP > 0) yP--;
@@ -64,6 +71,7 @@ public class Main {
             }
             yE1 = (yE1 + 1) % 4;
             xE2 = (xE2 + 1) % 4;
+            // show map
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 4; j++) {
                     if (((i == xE1) && (j == yE1)) || ((i == xE2) && (j == yE2)))
@@ -77,6 +85,7 @@ public class Main {
                 }
                 System.out.println();
             }
+            // check end
             if (((xP == xE1) && (yP == yE1)) || ((xP == xE2) && (yP == yE2))) {
                 System.out.print("Game over!");
                 return;

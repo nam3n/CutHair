@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cf8bee7-d11e-4f33-a0d4-891d6bd9d70e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Homework/GameDay1/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/GameDay1/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework/GameDay1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/GameDay1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework/GameDay1/out/production/GameDay1/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/GameDay1/out/production/GameDay1/com/company/Main.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +17,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Homework/GameDay1/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-908">
+            <state relative-caret-position="100">
               <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -205,7 +206,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -265,7 +265,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Homework/GameDay1/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-908">
+        <state relative-caret-position="100">
           <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
