@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int xP = 0, yP = 3;
-        int xE1, xE2, yE1, yE2;
+        int xE1, xE2, yE1, yE2, xG, yG;
         Random random = new Random();
         while (true) {
             xE1 = random.nextInt(4);
@@ -20,12 +20,20 @@ public class Main {
             yE2 = random.nextInt(4);
             if (((xE2 != xP) || (yE2 != yP)) && ((xE2 != xE1) || (yE2 != yE1))) break;
         }
+        while (true) {
+            xG = random.nextInt(4);
+            yG = random.nextInt(4);
+            if (((xG != xP) || (yG != yP)) && ((xG != xE1) || (yG != yE1)) && ((xG != xE2) || (yG != yE2)))
+                break;
+        }
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (((i == xE1) && (j == yE1)) || ((i == xE2) && (j == yE2)))
                     System.out.print('E');
                 else if ((i == xP) && (j == yP))
                     System.out.print('P');
+                else if ((i == xG) && (j == yG))
+                    System.out.print('G');
                 else
                     System.out.print('*');
             }
@@ -62,6 +70,8 @@ public class Main {
                         System.out.print('E');
                     else if ((i == xP) && (j == yP))
                         System.out.print('P');
+                    else if ((i == xG) && (j == yG))
+                        System.out.print('G');
                     else
                         System.out.print('*');
                 }
@@ -69,6 +79,10 @@ public class Main {
             }
             if (((xP == xE1) && (yP == yE1)) || ((xP == xE2) && (yP == yE2))) {
                 System.out.print("Game over!");
+                return;
+            }
+            if (((xP == xG) && (yP == yG))) {
+                System.out.print("You won!");
                 return;
             }
         }
