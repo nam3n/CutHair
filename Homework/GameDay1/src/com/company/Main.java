@@ -48,6 +48,7 @@ public class Main {
             // handle event
             String  a = scanner.next();
             // update game state
+            // player move
             switch (a) {
                 case "a":
                     if (yP > 0) yP--;
@@ -69,6 +70,12 @@ public class Main {
                     System.out.print("Exited!");
                     return;
             }
+            // first check end
+            if (((xP == xE1) && (yP == yE1)) || ((xP == xE2) && (yP == yE2))) {
+                System.out.print("Game over!");
+                return;
+            }
+            // enemy move
             yE1 = (yE1 + 1) % 4;
             xE2 = (xE2 + 1) % 4;
             // show map
@@ -85,7 +92,7 @@ public class Main {
                 }
                 System.out.println();
             }
-            // check end
+            // second check end
             if (((xP == xE1) && (yP == yE1)) || ((xP == xE2) && (yP == yE2))) {
                 System.out.print("Game over!");
                 return;
