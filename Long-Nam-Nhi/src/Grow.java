@@ -8,9 +8,9 @@ public class Grow extends GameObject {
     private Vector2D velocity;
 
     public Grow() {
-        this.velocity = new Vector2D(0, 5);
+        this.velocity = new Vector2D(0, 20);
         this.position = new Vector2D(600, 300);
-        this.frameCounter = new FrameCounter(30);
+        this.frameCounter = new FrameCounter(100);
     }
 
     @Override
