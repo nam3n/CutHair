@@ -10,7 +10,7 @@ public class Grow extends GameObject {
     public Grow() {
         this.velocity = new Vector2D(0, 20);
         this.position = new Vector2D(600, 300);
-        this.frameCounter = new FrameCounter(100);
+        this.frameCounter = new FrameCounter(10);
     }
 
     @Override
