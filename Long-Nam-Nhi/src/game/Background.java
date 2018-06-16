@@ -1,3 +1,5 @@
+package game;
+
 import base.GameObject;
 import renderer.BackgroundRenderer;
 

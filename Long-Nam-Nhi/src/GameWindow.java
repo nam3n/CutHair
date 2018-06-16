@@ -1,3 +1,5 @@
+import base.GameObjectManager;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -33,16 +35,24 @@ public class GameWindow extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    gameCanvas.scissor.position.x = 455;
+                    gameCanvas.scissor.position.x = 450;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    gameCanvas.scissor.position.x = 555;
+                    gameCanvas.scissor.position.x = 550;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     gameCanvas.scissor.velocity.set(0, -5);
                 }
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
                     gameCanvas.scissor.velocity.set(0, 5);
+                }
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    if (gameCanvas.scissor.position.x == 450) {
+                        gameCanvas.leftGrow.position.set(gameCanvas.scissor.position);
+                    } else {
+                        gameCanvas.rightGrow.position.set(gameCanvas.scissor.position);
+                    }
+                    GameObjectManager.instance.cut(gameCanvas.scissor);
                 }
             }
 

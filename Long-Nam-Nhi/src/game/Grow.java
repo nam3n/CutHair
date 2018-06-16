@@ -1,3 +1,5 @@
+package game;
+
 import base.FrameCounter;
 import base.GameObject;
 import base.GameObjectManager;

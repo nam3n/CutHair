@@ -1,3 +1,5 @@
+package game;
+
 import base.GameObject;
 import base.Vector2D;
 import renderer.PolygonRenderer;
@@ -13,4 +15,11 @@ public class Hair extends GameObject {
         this.velocity = new Vector2D();
     }
 
+    @Override
+    public void run() {
+        super.run();
+        if (this.position.y >= 600) {
+            this.isAlive = false;
+        }
+    }
 }

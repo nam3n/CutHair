@@ -1,4 +1,8 @@
 import base.GameObjectManager;
+import game.Background;
+import game.Grow;
+import game.Nose;
+import game.Scissor;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,3 +1,5 @@
+package game;
+
 import base.GameObject;
 import base.Vector2D;
 import renderer.ImageRenderer;
