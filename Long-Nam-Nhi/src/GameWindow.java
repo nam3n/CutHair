@@ -33,16 +33,27 @@ public class GameWindow extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    gameCanvas.scissor.position.set(455, 300);
+                    gameCanvas.scissor.position.x = 455;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    gameCanvas.scissor.position.set(555, 300);
+                    gameCanvas.scissor.position.x = 555;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    gameCanvas.scissor.velocity.set(0, -5);
+                }
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    gameCanvas.scissor.velocity.set(0, 5);
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    gameCanvas.scissor.velocity.set(0, 0);
+                }
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    gameCanvas.scissor.velocity.set(0, 0);
+                }
             }
         });
     }
