@@ -12,14 +12,12 @@ public class GameCanvas extends JPanel {
     public GameCanvas() {
         this.setSize(1024, 600);
         this.setupBackBuffered();
-        this.setupCharactor();
-        GameObjectManager.instance.add(new Background());
-        GameObjectManager.instance.add(new Grow());
+        this.setupCharacter();
 
         this.setVisible(true);
     }
 
-    private void setupCharactor() {
+    private void setupCharacter() {
         GameObjectManager.instance.add(new Background());
         GameObjectManager.instance.add(new Grow());
         GameObjectManager.instance.add(new Nose());
