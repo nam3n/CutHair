@@ -37,7 +37,7 @@ public class GameObjectManager {
         this.list.stream()
                 .filter(gameObject -> gameObject instanceof Hair)
                 .filter(gameObject -> (gameObject.position.x == scissor.position.x))
-                .filter(gameObject -> (gameObject.position.y >= scissor.position.y))
+                .filter(gameObject -> (gameObject.position.y > scissor.position.y))
                 .forEach(gameObject -> gameObject.velocity.set(0, 10));
     }
 

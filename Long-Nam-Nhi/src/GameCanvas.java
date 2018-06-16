@@ -31,7 +31,7 @@ public class GameCanvas extends JPanel {
         this.rightGrow = new Grow(550, 189);
         GameObjectManager.instance.add(this.leftGrow);
         GameObjectManager.instance.add(this.rightGrow);
-        this.scissor = new Scissor(455, 300);
+        this.scissor = new Scissor(450, 300);
         GameObjectManager.instance.add(this.scissor);
     }
 

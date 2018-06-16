@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class Hair extends GameObject {
 
-    private Vector2D velocity;
+    public Vector2D velocity;
 
     public Hair() {
         this.renderer = new PolygonRenderer(Color.black, 5, 3);
