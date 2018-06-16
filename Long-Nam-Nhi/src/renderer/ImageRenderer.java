@@ -21,7 +21,6 @@ public class ImageRenderer implements Renderer {
 
     @Override
     public void render(Vector2D position, Graphics graphics) {
-        System.out.println("nose");
         graphics.drawImage(this.image, (int) position.x - this.width / 2, (int) position.y - this.height / 2, this.width, this.height, null);
     }
 

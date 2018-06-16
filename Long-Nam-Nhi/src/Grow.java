@@ -7,9 +7,9 @@ public class Grow extends GameObject {
     private FrameCounter frameCounter;
     private Vector2D velocity;
 
-    public Grow() {
+    public Grow(int x, int y) {
         this.velocity = new Vector2D(0, 20);
-        this.position = new Vector2D(600, 300);
+        this.position = new Vector2D(x, y);
         this.frameCounter = new FrameCounter(10);
     }
 

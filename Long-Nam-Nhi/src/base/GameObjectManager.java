@@ -32,6 +32,7 @@ public class GameObjectManager {
 
     public <T extends GameObject> T recycle(Class<T> cls) {
         T object = (T) this.list.stream()
+                .filter(gameObject -> !gameObject.isAlive)
                 .filter(gameObject -> cls.isInstance(gameObject))
                 .findFirst()
                 .orElse(null);
