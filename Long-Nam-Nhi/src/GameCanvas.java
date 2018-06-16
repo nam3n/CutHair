@@ -8,7 +8,9 @@ public class GameCanvas extends JPanel {
 
     private BufferedImage backBuffered;
     private Graphics graphics;
-    public Grow grow1, grow2;
+    public Grow leftGrow, rightGrow;
+    public Scissor scissor;
+
 
     public GameCanvas() {
         this.setSize(1024, 600);
@@ -21,8 +23,12 @@ public class GameCanvas extends JPanel {
     private void setupCharacter() {
         GameObjectManager.instance.add(new Background());
         GameObjectManager.instance.add(new Nose());
-        this.grow1 = new Grow(450, 190);
-        this.grow2 = new Grow(550, 190);
+        this.leftGrow = new Grow(450, 189);
+        this.rightGrow = new Grow(550, 189);
+        GameObjectManager.instance.add(this.leftGrow);
+        GameObjectManager.instance.add(this.rightGrow);
+        this.scissor = new Scissor(455, 300);
+        GameObjectManager.instance.add(this.scissor);
     }
 
     private void setupBackBuffered() {
@@ -31,8 +37,6 @@ public class GameCanvas extends JPanel {
     }
 
     public void runAll() {
-        this.grow1.run();
-        this.grow2.run();
         GameObjectManager.instance.runAll();
     }
     @Override

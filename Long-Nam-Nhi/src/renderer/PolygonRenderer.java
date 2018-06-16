@@ -13,9 +13,9 @@ public class PolygonRenderer implements Renderer {
     private int width;
     private int height;
 
-    public PolygonRenderer(Color color) {
-        this.width = 5;
-        this.height = 20;
+    public PolygonRenderer(Color color, int width, int height) {
+        this.width = width;
+        this.height = height;
         this.verties = new ArrayList<>();
         this.color = color;
         this.polygon = new Polygon();
