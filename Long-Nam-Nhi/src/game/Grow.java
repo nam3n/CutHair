@@ -16,12 +16,11 @@ public class Grow extends GameObject {
     @Override
     public void run() {
         if (this.frameCounter.run()) {
-//            Hair hair = GameObjectManager.instance.recycle(Hair.class);
-            Hair hair = new Hair();
+            Hair hair = GameObjectManager.instance.recycle(Hair.class);
+//            Hair hair = new Hair();
             hair.position.set(this.position);
-            hair.velocity.set(0, 0);
-            GameObjectManager.instance.add(hair);
             this.position.addUp(this.velocity);
+//            GameObjectManager.instance.add(hair);
             this.frameCounter.reset();
         }
     }

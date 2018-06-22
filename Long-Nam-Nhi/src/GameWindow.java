@@ -47,12 +47,14 @@ public class GameWindow extends JFrame {
                     gameCanvas.scissor.velocity.set(0, 5);
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    gameCanvas.scissor.cut();
                     if (gameCanvas.scissor.position.x == 450) {
+                        if (gameCanvas.scissor.position.y < gameCanvas.leftGrow.position.y)
                         gameCanvas.leftGrow.position.set(gameCanvas.scissor.position);
                     } else {
+                        if (gameCanvas.scissor.position.y < gameCanvas.rightGrow.position.y)
                         gameCanvas.rightGrow.position.set(gameCanvas.scissor.position);
                     }
-                    GameObjectManager.instance.cut(gameCanvas.scissor);
                 }
             }
 

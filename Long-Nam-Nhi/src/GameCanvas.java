@@ -42,6 +42,7 @@ public class GameCanvas extends JPanel {
 
     public void runAll() {
         GameObjectManager.instance.runAll();
+        System.out.println(leftGrow.position.y + " " + rightGrow.position.y);
     }
     @Override
     protected void paintComponent(Graphics g) {

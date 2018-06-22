@@ -18,7 +18,7 @@ public class Hair extends GameObject {
     @Override
     public void run() {
         super.run();
-        if (this.position.y >= 600) {
+        if (this.position.y >= 700) {
             this.isAlive = false;
         }
     }

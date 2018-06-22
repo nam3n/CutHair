@@ -33,6 +33,7 @@ public class GameObjectManager {
         this.list.forEach(gameObject -> gameObject.render(graphics));
     }
 
+
     public void cut(Scissor scissor) {
         this.list.stream()
                 .filter(gameObject -> gameObject instanceof Hair)
@@ -41,6 +42,8 @@ public class GameObjectManager {
                 .forEach(gameObject -> gameObject.velocity.set(0, 10));
     }
 
+
+
     public <T extends GameObject> T recycle(Class<T> cls) {
         T object = (T) this.list.stream()
                 .filter(gameObject -> !gameObject.isAlive)
@@ -48,7 +51,8 @@ public class GameObjectManager {
                 .findFirst()
                 .orElse(null);
         if (object != null) {
-            // do something
+            object.isAlive = true;
+            object.velocity.set(0, 0);
         } else {
             try {
                 object = cls.newInstance();
