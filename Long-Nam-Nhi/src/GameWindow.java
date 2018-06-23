@@ -1,5 +1,3 @@
-import base.GameObjectManager;
-
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -8,7 +6,7 @@ import java.awt.event.WindowEvent;
 
 public class GameWindow extends JFrame {
     private long lastTime = 0;
-    GameCanvas gameCanvas;
+    private GameCanvas gameCanvas;
 
     public GameWindow() {
         this.setSize(1024, 600); // set size window

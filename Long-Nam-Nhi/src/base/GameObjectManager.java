@@ -1,8 +1,5 @@
 package base;
 
-import game.Hair;
-import game.Scissor;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +8,17 @@ public class GameObjectManager {
 
     public static GameObjectManager instance = new GameObjectManager();
 
-    private List<GameObject> list;
+    public List<GameObject> list;
     private List<GameObject> tempList;
 
     private GameObjectManager() {
         this.list = new ArrayList<>();
         this.tempList = new ArrayList<>();
+    }
+
+    public void clear() {
+        this.list.clear();
+        this.tempList.clear();
     }
 
     public void add(GameObject gameObject) {
@@ -32,16 +34,6 @@ public class GameObjectManager {
     public void renderAll(Graphics graphics) {
         this.list.forEach(gameObject -> gameObject.render(graphics));
     }
-
-
-    public void cut(Scissor scissor) {
-        this.list.stream()
-                .filter(gameObject -> gameObject instanceof Hair)
-                .filter(gameObject -> (gameObject.position.x == scissor.position.x))
-                .filter(gameObject -> (gameObject.position.y > scissor.position.y))
-                .forEach(gameObject -> gameObject.velocity.set(0, 10));
-    }
-
 
 
     public <T extends GameObject> T recycle(Class<T> cls) {

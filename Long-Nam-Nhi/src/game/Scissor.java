@@ -29,6 +29,11 @@ public class Scissor extends GameObject {
     }
 
     public void cut() {
-        GameObjectManager.instance.cut(this);
+        GameObjectManager.instance.list
+                .stream()
+                .filter(gameObject -> gameObject instanceof Hair)
+                .filter(gameObject -> (gameObject.position.x == this.position.x))
+                .filter(gameObject -> (gameObject.position.y > this.position.y))
+                .forEach(gameObject -> gameObject.velocity.set(0, 10));
     }
 }

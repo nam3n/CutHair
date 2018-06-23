@@ -3,6 +3,8 @@ package game;
 import base.FrameCounter;
 import base.GameObject;
 import base.GameObjectManager;
+import scene.GameOverScene;
+import scene.SceneManager;
 
 public class Grow extends GameObject {
     private FrameCounter frameCounter;
@@ -17,11 +19,16 @@ public class Grow extends GameObject {
     public void run() {
         if (this.frameCounter.run()) {
             Hair hair = GameObjectManager.instance.recycle(Hair.class);
-//            Hair hair = new Hair();
             hair.position.set(this.position);
             this.position.addUp(this.velocity);
-//            GameObjectManager.instance.add(hair);
+            this.checkEnd();
             this.frameCounter.reset();
+        }
+    }
+
+    private void checkEnd() {
+        if (this.position.y > 600) {
+            SceneManager.instance.changeScene(new GameOverScene());
         }
     }
 }

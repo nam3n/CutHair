@@ -5,3 +5,4 @@ public class Main {
         gameWindow.gameLoop();
     }
 }
+//lap code func class ke thua ren

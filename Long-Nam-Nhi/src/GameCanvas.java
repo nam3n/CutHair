@@ -3,6 +3,8 @@ import game.Background;
 import game.Grow;
 import game.Nose;
 import game.Scissor;
+import scene.GamePlayScene;
+import scene.SceneManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,14 +21,15 @@ public class GameCanvas extends JPanel {
     public GameCanvas() {
         this.setSize(1024, 600);
         this.setupBackBuffered();
+
+        SceneManager.instance.changeScene(new GamePlayScene());
         this.setupCharacter();
+
 
         this.setVisible(true);
     }
 
     private void setupCharacter() {
-        GameObjectManager.instance.add(new Background());
-        GameObjectManager.instance.add(new Nose());
         this.leftGrow = new Grow(450, 189);
         this.rightGrow = new Grow(550, 189);
         GameObjectManager.instance.add(this.leftGrow);
@@ -42,7 +45,7 @@ public class GameCanvas extends JPanel {
 
     public void runAll() {
         GameObjectManager.instance.runAll();
-        System.out.println(leftGrow.position.y + " " + rightGrow.position.y);
+        SceneManager.instance.performChangeSceneIfNeeded();
     }
     @Override
     protected void paintComponent(Graphics g) {
