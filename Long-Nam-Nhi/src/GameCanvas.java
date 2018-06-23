@@ -1,9 +1,10 @@
 import base.GameObjectManager;
+import constant.Constant;
 import game.Background;
 import game.Grow;
 import game.Nose;
 import game.Scissor;
-import scene.GamePlayScene;
+import renderer.ImageRenderer;
 import scene.SceneManager;
 
 import javax.swing.*;
@@ -19,10 +20,9 @@ public class GameCanvas extends JPanel {
 
 
     public GameCanvas() {
-        this.setSize(1024, 600);
+        this.setSize(Constant.Window.WIDTH, Constant.Window.HEIGHT);
         this.setupBackBuffered();
 
-        SceneManager.instance.changeScene(new GamePlayScene());
         this.setupCharacter();
 
 
@@ -30,11 +30,15 @@ public class GameCanvas extends JPanel {
     }
 
     private void setupCharacter() {
-        this.leftGrow = new Grow(450, 189);
-        this.rightGrow = new Grow(550, 189);
+        Background background = new Background();
+        background.renderer = new ImageRenderer("resources/background.jpg", 1024, 600);
+        GameObjectManager.instance.add(background);
+        GameObjectManager.instance.add(new Nose());
+        this.leftGrow = new Grow(Constant.Grow.LEFT, Constant.Grow.TOP);
+        this.rightGrow = new Grow(Constant.Grow.RIGHT, Constant.Grow.TOP);
         GameObjectManager.instance.add(this.leftGrow);
         GameObjectManager.instance.add(this.rightGrow);
-        this.scissor = new Scissor(450, 300);
+        this.scissor = new Scissor(Constant.Grow.LEFT, 300);
         GameObjectManager.instance.add(this.scissor);
     }
 

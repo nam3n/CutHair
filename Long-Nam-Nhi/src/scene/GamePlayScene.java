@@ -6,12 +6,11 @@ import renderer.ImageRenderer;
 
 public class GamePlayScene implements Scene {
 
-    private Background background;
     @Override
     public void init() {
-        background = new Background();
-        background.renderer = new ImageRenderer("", 1024, 600);
-        GameObjectManager.instance.add(background);
+//        Background background = new Background();
+//        background.renderer = new ImageRenderer("", 1024, 600);
+//        GameObjectManager.instance.add(background);
 
     }
 

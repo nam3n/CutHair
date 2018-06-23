@@ -2,6 +2,8 @@ package game;
 
 import base.GameObject;
 import base.GameObjectManager;
+import constant.Constant;
+import renderer.ImageRenderer;
 import renderer.PolygonRenderer;
 
 import java.awt.*;
@@ -10,7 +12,7 @@ public class Scissor extends GameObject {
 
     public Scissor(int x, int y) {
         this.position.set(x, y);
-        this.renderer = new PolygonRenderer(Color.red, 20, 20);
+        this.renderer = new ImageRenderer("resources/kéo.jpg", 60, 60);
     }
 
     @Override
@@ -19,9 +21,14 @@ public class Scissor extends GameObject {
         backToAbleZone();
     }
 
+    @Override
+    public void render(Graphics graphics) {
+        super.render(graphics);
+    }
+
     private void backToAbleZone() {
-        if (this.position.y < 190) {
-            this.position.y = 190;
+        if (this.position.y < Constant.Grow.TOP) {
+            this.position.y = Constant.Grow.TOP;
         }
         if (this.position.y > 540) {
             this.position.y = 540;

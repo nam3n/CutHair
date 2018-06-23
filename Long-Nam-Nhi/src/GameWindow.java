@@ -1,3 +1,5 @@
+import constant.Constant;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -9,7 +11,7 @@ public class GameWindow extends JFrame {
     private GameCanvas gameCanvas;
 
     public GameWindow() {
-        this.setSize(1024, 600); // set size window
+        this.setSize(Constant.Window.WIDTH, Constant.Window.HEIGHT); // set size window
 
         this.gameCanvas = new GameCanvas();
         this.add(this.gameCanvas);
@@ -33,10 +35,10 @@ public class GameWindow extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    gameCanvas.scissor.position.x = 450;
+                    gameCanvas.scissor.position.x = Constant.Grow.LEFT;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    gameCanvas.scissor.position.x = 550;
+                    gameCanvas.scissor.position.x = Constant.Grow.RIGHT;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     gameCanvas.scissor.velocity.set(0, -5);
@@ -46,7 +48,7 @@ public class GameWindow extends JFrame {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                     gameCanvas.scissor.cut();
-                    if (gameCanvas.scissor.position.x == 450) {
+                    if (gameCanvas.scissor.position.x == Constant.Grow.LEFT) {
                         if (gameCanvas.scissor.position.y < gameCanvas.leftGrow.position.y)
                         gameCanvas.leftGrow.position.set(gameCanvas.scissor.position);
                     } else {

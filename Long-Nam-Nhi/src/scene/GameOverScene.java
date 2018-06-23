@@ -6,11 +6,9 @@ import renderer.ImageRenderer;
 
 public class GameOverScene implements Scene {
 
-    private Background background;
-
     @Override
     public void init() {
-        background = new Background();
+        Background background = new Background();
         background.renderer = new ImageRenderer("resources/Game Over.jpg", 1024, 600);
         GameObjectManager.instance.add(background);
     }
@@ -18,6 +16,5 @@ public class GameOverScene implements Scene {
     @Override
     public void deinit() {
         GameObjectManager.instance.clear();
-
     }
 }

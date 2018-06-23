@@ -21,7 +21,7 @@ public class Grow extends GameObject {
             Hair hair = GameObjectManager.instance.recycle(Hair.class);
             hair.position.set(this.position);
             this.position.addUp(this.velocity);
-            this.checkEnd();
+//            this.checkEnd();
             this.frameCounter.reset();
         }
     }
