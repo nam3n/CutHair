@@ -12,7 +12,7 @@ public class Scissor extends GameObject {
 
     public Scissor(int x, int y) {
         this.position.set(x, y);
-        this.renderer = new ImageRenderer("resources/kéo.jpg", 60, 60);
+        this.renderer = new ImageRenderer("resources/kéo 3.jpg", 60, 60);
     }
 
     @Override

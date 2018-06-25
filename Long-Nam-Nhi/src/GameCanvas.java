@@ -5,6 +5,8 @@ import game.Grow;
 import game.Nose;
 import game.Scissor;
 import renderer.ImageRenderer;
+import scene.GamePlayScene;
+import scene.Scene;
 import scene.SceneManager;
 
 import javax.swing.*;
@@ -17,12 +19,14 @@ public class GameCanvas extends JPanel {
     private Graphics graphics;
     public Grow leftGrow, rightGrow;
     public Scissor scissor;
+    private Nose nose;
 
 
     public GameCanvas() {
         this.setSize(Constant.Window.WIDTH, Constant.Window.HEIGHT);
         this.setupBackBuffered();
 
+        SceneManager.instance.changeScene(new GamePlayScene());
         this.setupCharacter();
 
 
@@ -30,16 +34,17 @@ public class GameCanvas extends JPanel {
     }
 
     private void setupCharacter() {
-        Background background = new Background();
-        background.renderer = new ImageRenderer("resources/background.jpg", 1024, 600);
-        GameObjectManager.instance.add(background);
-        GameObjectManager.instance.add(new Nose());
+//        Background background = new Background();
+//        background.renderer = new ImageRenderer("resources/background.jpg", 1024, 600);
+//        GameObjectManager.instance.add(background);
+        System.out.println("1");
         this.leftGrow = new Grow(Constant.Grow.LEFT, Constant.Grow.TOP);
         this.rightGrow = new Grow(Constant.Grow.RIGHT, Constant.Grow.TOP);
         GameObjectManager.instance.add(this.leftGrow);
         GameObjectManager.instance.add(this.rightGrow);
         this.scissor = new Scissor(Constant.Grow.LEFT, 300);
         GameObjectManager.instance.add(this.scissor);
+        this.nose = new Nose();
     }
 
     private void setupBackBuffered() {
@@ -59,6 +64,7 @@ public class GameCanvas extends JPanel {
 
     public void renderAll() {
         GameObjectManager.instance.renderAll(this.graphics);
+        this.nose.render(graphics);
         this.repaint();
     }
 }
