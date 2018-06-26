@@ -10,7 +10,7 @@ public class Nose extends GameObject {
         this.position = new Vector2D(500, 100);
         int width = 200;
         int height = 265;
-        renderer = new ImageRenderer("resources/nose2.jpg", width, height);
+        renderer = new ImageRenderer("C:\\Users\\Long\\IdeaProjects\\N-L-N (3)\\Long-Nam-Nhi\\resources\\nose2.jpg", width, height);
     }
 
 }

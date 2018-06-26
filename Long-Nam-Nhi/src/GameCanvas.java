@@ -64,7 +64,7 @@ public class GameCanvas extends JPanel {
 
     public void renderAll() {
         GameObjectManager.instance.renderAll(this.graphics);
-        this.nose.render(graphics);
+//        this.nose.render(graphics);
         this.repaint();
     }
 }
