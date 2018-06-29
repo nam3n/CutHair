@@ -6,11 +6,26 @@ import base.GameObjectManager;
 import scene.GameOverScene;
 import scene.SceneManager;
 
+import java.util.Random;
+
 public class Grow extends GameObject {
     private FrameCounter frameCounter;
+    private Random random;
 
-    public Grow(int x, int y) {
+    public Grow() {
+        this.random = new Random();
         this.velocity.set(0, 3);
+        int x, y;
+        if (this.random.nextInt(2) == 0) {
+            y = 290;
+        } else {
+            y = 295;
+        }
+        if (y == 295) {
+            x = random.nextInt(31) + 380;
+        } else {
+            x = random.nextInt(31) + 575;
+        }
         this.position.set(x, y);
         this.frameCounter = new FrameCounter(1);
     }

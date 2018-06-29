@@ -12,7 +12,7 @@ public class Scissor extends GameObject {
 
     public Scissor(int x, int y) {
         this.position.set(x, y);
-        this.renderer = new ImageRenderer("resources/kéo 3.jpg", 60, 60);
+        this.renderer = new ImageRenderer("resources/keo.png", 60, 60);
     }
 
     @Override
@@ -24,6 +24,7 @@ public class Scissor extends GameObject {
     @Override
     public void render(Graphics graphics) {
         super.render(graphics);
+        System.out.println(this.position.x + " " + this.position.y);
     }
 
     private void backToAbleZone() {

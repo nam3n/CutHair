@@ -35,36 +35,34 @@ public class GameWindow extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    gameCanvas.scissor.position.x = Constant.Grow.LEFT;
+                    gameCanvas.scissor.velocity.x = -5;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    gameCanvas.scissor.position.x = Constant.Grow.RIGHT;
+                    gameCanvas.scissor.velocity.x = 5;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    gameCanvas.scissor.velocity.set(0, -5);
+                    gameCanvas.scissor.velocity.y = -5;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    gameCanvas.scissor.velocity.set(0, 5);
+                    gameCanvas.scissor.velocity.y = 5;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    gameCanvas.scissor.cut();
-                    if (gameCanvas.scissor.position.x == Constant.Grow.LEFT) {
-                        if (gameCanvas.scissor.position.y < gameCanvas.leftGrow.position.y)
-                        gameCanvas.leftGrow.position.set(gameCanvas.scissor.position);
-                    } else {
-                        if (gameCanvas.scissor.position.y < gameCanvas.rightGrow.position.y)
-                        gameCanvas.rightGrow.position.set(gameCanvas.scissor.position);
-                    }
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                    gameCanvas.scissor.velocity.x = 0;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                    gameCanvas.scissor.velocity.x = 0;
+                }
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    gameCanvas.scissor.velocity.set(0, 0);
+                    gameCanvas.scissor.velocity.y = 0;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    gameCanvas.scissor.velocity.set(0, 0);
+                    gameCanvas.scissor.velocity.y = 0;
                 }
             }
         });
