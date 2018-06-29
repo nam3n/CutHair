@@ -2,21 +2,16 @@ package scene;
 
 import base.GameObjectManager;
 import game.Background;
-import game.GrowSpawner;
-import game.Scissor;
+import game.Demo;
 import renderer.ImageRenderer;
 
-public class GamePlayScene implements Scene {
-
+public class GameStartScene implements Scene {
     @Override
     public void init() {
         Background background = new Background();
-        background.renderer = new ImageRenderer("resources/background.jpg", 1024, 600);
+        background.renderer = new ImageRenderer("resources/Game-start.jpg", 1024, 600);
         GameObjectManager.instance.add(background);
-        GameObjectManager.instance.add(new Scissor(500, 300));
-        System.out.println("2");
-        GameObjectManager.instance.add(new GrowSpawner());
-
+        GameObjectManager.instance.recycle(Demo.class);
     }
 
     @Override

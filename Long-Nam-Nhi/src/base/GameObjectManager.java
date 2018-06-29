@@ -1,5 +1,7 @@
 package base;
 
+import game.Scissor;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,5 +56,13 @@ public class GameObjectManager {
             }
         }
         return object;
+    }
+
+    public Scissor findScissor() {
+        return (Scissor) this.list
+                .stream()
+                .filter(gameObject -> gameObject instanceof Scissor)
+                .findFirst()
+                .orElse(null);
     }
 }

@@ -4,6 +4,7 @@ import game.Grow;
 import game.GrowSpawner;
 import game.Scissor;
 import scene.GamePlayScene;
+import scene.GameStartScene;
 import scene.SceneManager;
 
 import javax.swing.*;
@@ -21,18 +22,10 @@ public class GameCanvas extends JPanel {
         this.setSize(Constant.Window.WIDTH, Constant.Window.HEIGHT);
         this.setupBackBuffered();
 
-        SceneManager.instance.changeScene(new GamePlayScene());
-        this.setupCharacter();
+        SceneManager.instance.changeScene(new GameStartScene());
 
 
         this.setVisible(true);
-    }
-
-    private void setupCharacter() {
-        GameObjectManager.instance.add(new GrowSpawner());
-//        GameObjectManager.instance.add(new Grow());
-        this.scissor = new Scissor(600, 300);
-        GameObjectManager.instance.add(this.scissor);
     }
 
     private void setupBackBuffered() {

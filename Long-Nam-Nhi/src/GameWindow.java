@@ -1,4 +1,8 @@
+import base.GameObjectManager;
 import constant.Constant;
+import scene.GamePlayScene;
+import scene.GameStartScene;
+import scene.SceneManager;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -9,6 +13,7 @@ import java.awt.event.WindowEvent;
 public class GameWindow extends JFrame {
     private long lastTime = 0;
     private GameCanvas gameCanvas;
+    private boolean played = false;
 
     public GameWindow() {
         this.setSize(Constant.Window.WIDTH, Constant.Window.HEIGHT); // set size window
@@ -34,6 +39,9 @@ public class GameWindow extends JFrame {
 
             @Override
             public void keyPressed(KeyEvent e) {
+                if (gameCanvas.scissor == null) {
+                    gameCanvas.scissor = GameObjectManager.instance.findScissor();
+                }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                     gameCanvas.scissor.velocity.x = -5;
                 }
@@ -47,6 +55,10 @@ public class GameWindow extends JFrame {
                     gameCanvas.scissor.velocity.y = 5;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    if (played == false) {
+                        played = true;
+                        SceneManager.instance.changeScene(new GamePlayScene());
+                    } else
                     gameCanvas.scissor.cut();
                 }
             }

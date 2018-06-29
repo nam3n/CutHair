@@ -6,10 +6,10 @@ import base.GameObjectManager;
 
 public class GrowSpawner extends GameObject {
     private FrameCounter frameCounter;
-    private int groupCount = 0;
+    private int groupCount = 1;
 
     public GrowSpawner() {
-        frameCounter = new FrameCounter(200);
+        frameCounter = new FrameCounter(100);
     }
 
     @Override

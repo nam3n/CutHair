@@ -13,6 +13,7 @@ public class Grow extends GameObject {
     private Random random;
 
     public Grow() {
+        this.group = 1;
         this.random = new Random();
         this.velocity.set(0, 3);
         int x, y;
@@ -45,16 +46,10 @@ public class Grow extends GameObject {
     private void move() {
         if (random.nextInt(100) < 5) {
             int randomNum = random.nextInt(100);
-            if (randomNum < 15) {
-                this.velocity.set(this.velocity.rotate(20));
-            } else if (randomNum < 35) {
+            if (randomNum < 50) {
                 this.velocity.set(this.velocity.rotate(10));
-            } else if (randomNum < 65) {
-
-            } else if (randomNum < 85) {
-                this.velocity.set(this.velocity.rotate(-10));
             } else {
-                this.velocity.set(this.velocity.rotate(-20));
+                this.velocity.set(this.velocity.rotate(-10));
             }
         }
         this.position.addUp(this.velocity);
