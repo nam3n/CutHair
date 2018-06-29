@@ -9,8 +9,10 @@ public class GameObject {
     public Vector2D velocity;
     public Renderer renderer;
     public boolean isAlive;
+    public int group;
 
     public GameObject() {
+        this.group = 0;
         this.velocity = new Vector2D();
         this.isAlive = true;
         this.position = new Vector2D();

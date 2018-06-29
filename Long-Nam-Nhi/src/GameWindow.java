@@ -47,6 +47,7 @@ public class GameWindow extends JFrame {
                     gameCanvas.scissor.velocity.y = 5;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    gameCanvas.scissor.cut();
                 }
             }
 

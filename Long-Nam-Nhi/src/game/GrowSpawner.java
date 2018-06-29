@@ -6,16 +6,19 @@ import base.GameObjectManager;
 
 public class GrowSpawner extends GameObject {
     private FrameCounter frameCounter;
+    private int groupCount = 0;
 
     public GrowSpawner() {
-        frameCounter = new FrameCounter(30);
+        frameCounter = new FrameCounter(200);
     }
 
     @Override
     public void run() {
         super.run();
         if (this.frameCounter.run()) {
-            GameObjectManager.instance.add(new Grow());
+            Grow grow = new Grow();
+            grow.group = ++this.groupCount;
+            GameObjectManager.instance.add(grow);
             this.frameCounter.reset();
         }
     }

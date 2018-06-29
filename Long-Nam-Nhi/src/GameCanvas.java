@@ -29,8 +29,8 @@ public class GameCanvas extends JPanel {
     }
 
     private void setupCharacter() {
-//        GameObjectManager.instance.add(new GrowSpawner());
-        GameObjectManager.instance.add(new Grow());
+        GameObjectManager.instance.add(new GrowSpawner());
+//        GameObjectManager.instance.add(new Grow());
         this.scissor = new Scissor(600, 300);
         GameObjectManager.instance.add(this.scissor);
     }

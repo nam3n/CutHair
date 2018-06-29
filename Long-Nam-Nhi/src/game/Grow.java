@@ -35,10 +35,29 @@ public class Grow extends GameObject {
         if (this.frameCounter.run()) {
             Hair hair = GameObjectManager.instance.recycle(Hair.class);
             hair.position.set(this.position);
-            this.position.addUp(this.velocity);
-//            this.checkEnd();
+            hair.group = this.group;
+            this.move();
+            this.checkEnd();
             this.frameCounter.reset();
         }
+    }
+
+    private void move() {
+        if (random.nextInt(100) < 5) {
+            int randomNum = random.nextInt(100);
+            if (randomNum < 15) {
+                this.velocity.set(this.velocity.rotate(20));
+            } else if (randomNum < 35) {
+                this.velocity.set(this.velocity.rotate(10));
+            } else if (randomNum < 65) {
+
+            } else if (randomNum < 85) {
+                this.velocity.set(this.velocity.rotate(-10));
+            } else {
+                this.velocity.set(this.velocity.rotate(-20));
+            }
+        }
+        this.position.addUp(this.velocity);
     }
 
     private void checkEnd() {
