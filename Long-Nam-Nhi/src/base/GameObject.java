@@ -10,8 +10,10 @@ public class GameObject {
     public Renderer renderer;
     public boolean isAlive;
     public int group;
+    public int orderNum;
 
     public GameObject() {
+        this.orderNum = 0;
         this.group = 0;
         this.velocity = new Vector2D();
         this.isAlive = true;

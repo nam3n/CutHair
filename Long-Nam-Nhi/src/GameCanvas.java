@@ -24,7 +24,6 @@ public class GameCanvas extends JPanel {
 
         SceneManager.instance.changeScene(new GameStartScene());
 
-
         this.setVisible(true);
     }
 

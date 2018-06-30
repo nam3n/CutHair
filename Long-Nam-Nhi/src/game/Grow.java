@@ -11,8 +11,10 @@ import java.util.Random;
 public class Grow extends GameObject {
     private FrameCounter frameCounter;
     private Random random;
+    private int orderNumCount;
 
     public Grow() {
+        orderNumCount = 1;
         this.group = 1;
         this.random = new Random();
         this.velocity.set(0, 3);
@@ -28,7 +30,7 @@ public class Grow extends GameObject {
             x = random.nextInt(31) + 575;
         }
         this.position.set(x, y);
-        this.frameCounter = new FrameCounter(1);
+        this.frameCounter = new FrameCounter(2);
     }
 
     @Override
@@ -37,6 +39,7 @@ public class Grow extends GameObject {
             Hair hair = GameObjectManager.instance.recycle(Hair.class);
             hair.position.set(this.position);
             hair.group = this.group;
+            hair.orderNum = this.orderNumCount++;
             this.move();
             this.checkEnd();
             this.frameCounter.reset();

@@ -11,7 +11,6 @@ public class GameStartScene implements Scene {
         Background background = new Background();
         background.renderer = new ImageRenderer("resources/Game-start.jpg", 1024, 600);
         GameObjectManager.instance.add(background);
-        GameObjectManager.instance.recycle(Demo.class);
     }
 
     @Override

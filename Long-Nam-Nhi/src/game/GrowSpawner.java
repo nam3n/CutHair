@@ -9,7 +9,7 @@ public class GrowSpawner extends GameObject {
     private int groupCount = 1;
 
     public GrowSpawner() {
-        frameCounter = new FrameCounter(100);
+        frameCounter = new FrameCounter(50);
     }
 
     @Override

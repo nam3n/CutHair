@@ -2,6 +2,7 @@ package scene;
 
 import base.GameObjectManager;
 import game.Background;
+import game.Grow;
 import game.GrowSpawner;
 import game.Scissor;
 import renderer.ImageRenderer;
@@ -14,8 +15,8 @@ public class GamePlayScene implements Scene {
         background.renderer = new ImageRenderer("resources/background.jpg", 1024, 600);
         GameObjectManager.instance.add(background);
         GameObjectManager.instance.add(new Scissor(500, 300));
-        System.out.println("2");
         GameObjectManager.instance.add(new GrowSpawner());
+//        GameObjectManager.instance.add(new Grow());
 
     }
 
