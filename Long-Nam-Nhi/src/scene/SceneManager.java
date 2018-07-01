@@ -3,7 +3,7 @@ package scene;
 public class SceneManager {
     public static SceneManager instance = new SceneManager();
 
-    private Scene currentScene;
+    public Scene currentScene;
 
     private Scene nextScene;
 

@@ -1,8 +1,6 @@
 import base.GameObjectManager;
 import constant.Constant;
-import scene.GamePlayScene;
-import scene.GameStartScene;
-import scene.SceneManager;
+import scene.*;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -13,7 +11,6 @@ import java.awt.event.WindowEvent;
 public class GameWindow extends JFrame {
     private long lastTime = 0;
     private GameCanvas gameCanvas;
-    private boolean played = false;
 
     public GameWindow() {
         this.setSize(Constant.Window.WIDTH, Constant.Window.HEIGHT); // set size window
@@ -39,47 +36,47 @@ public class GameWindow extends JFrame {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if (gameCanvas.scissor == null) {
-                    gameCanvas.scissor = GameObjectManager.instance.findScissor();
-                } else {
+                if (SceneManager.instance.currentScene instanceof GamePlayScene) {
                     if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                        gameCanvas.scissor.velocity.x = -Constant.Scissor.SPEED;
+                        GameObjectManager.instance.list.get(1).velocity.x = -Constant.Scissor.SPEED;
                     }
                     if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                        gameCanvas.scissor.velocity.x = Constant.Scissor.SPEED;
+                        GameObjectManager.instance.list.get(1).velocity.x = Constant.Scissor.SPEED;
                     }
                     if (e.getKeyCode() == KeyEvent.VK_UP) {
-                        gameCanvas.scissor.velocity.y = -Constant.Scissor.SPEED;
+                        GameObjectManager.instance.list.get(1).velocity.y = -Constant.Scissor.SPEED;
                     }
                     if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                        gameCanvas.scissor.velocity.y = Constant.Scissor.SPEED;
+                        GameObjectManager.instance.list.get(1).velocity.y = Constant.Scissor.SPEED;
                     }
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    if (played == false) {
-                        played = true;
+                    if (SceneManager.instance.currentScene instanceof GamePlayScene) {
+                        GameObjectManager.instance.cut();
+                    } else if (SceneManager.instance.currentScene instanceof GameIntroScene)
                         SceneManager.instance.changeScene(new GamePlayScene());
-                    } else
-                    gameCanvas.scissor.cut();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    if (SceneManager.instance.currentScene instanceof GameOverScene) {
+                        SceneManager.instance.changeScene(new GamePlayScene());
+                    }
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                if (gameCanvas.scissor != null) {
                     if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                        gameCanvas.scissor.velocity.x = 0;
+                        GameObjectManager.instance.list.get(1).velocity.x = 0;
                     }
                     if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                        gameCanvas.scissor.velocity.x = 0;
+                        GameObjectManager.instance.list.get(1).velocity.x = 0;
                     }
                     if (e.getKeyCode() == KeyEvent.VK_UP) {
-                        gameCanvas.scissor.velocity.y = 0;
+                        GameObjectManager.instance.list.get(1).velocity.y = 0;
                     }
                     if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                        gameCanvas.scissor.velocity.y = 0;
+                        GameObjectManager.instance.list.get(1).velocity.y = 0;
                     }
-                }
             }
         });
     }

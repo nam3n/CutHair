@@ -11,6 +11,7 @@ public class GameObject {
     public boolean isAlive;
     public int group;
     public int orderNum;
+    public int countCut;
 
     public GameObject() {
         this.orderNum = 0;

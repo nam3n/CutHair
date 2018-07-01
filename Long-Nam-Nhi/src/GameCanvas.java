@@ -15,8 +15,6 @@ public class GameCanvas extends JPanel {
 
     private BufferedImage backBuffered;
     private Graphics graphics;
-    public Scissor scissor;
-
 
     public GameCanvas() {
         this.setSize(Constant.Window.WIDTH, Constant.Window.HEIGHT);

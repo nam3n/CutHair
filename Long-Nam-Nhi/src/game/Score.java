@@ -5,13 +5,13 @@ import renderer.TextRenderer;
 
 import java.awt.*;
 
-public class Demo extends GameObject {
+public class Score extends GameObject {
 
-    public Demo() {
-        this.position.set(40, 80);
+    public Score(String string) {
+        this.position.set(270, 360);
         this.renderer = new TextRenderer(
-                "Space to play.",
-                Color.BLACK,
+                string + "",
+                Color.WHITE,
                 "resources/FiraMono-Bold.ttf",
                 100
         );

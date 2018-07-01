@@ -9,6 +9,6 @@ public class Constant {
         public static final int HEIGHT = 600;
     }
     public static class Grow {
-        public static final int TOP = 290;
+        public static final int TOP = 310;
     }
 }

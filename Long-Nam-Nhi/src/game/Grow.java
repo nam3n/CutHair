@@ -3,6 +3,7 @@ package game;
 import base.FrameCounter;
 import base.GameObject;
 import base.GameObjectManager;
+import base.Vector2D;
 import scene.GameOverScene;
 import scene.SceneManager;
 
@@ -12,12 +13,14 @@ public class Grow extends GameObject {
     private FrameCounter frameCounter;
     private Random random;
     private int orderNumCount;
+    private Vector2D velocityRoot;
 
     public Grow() {
-        orderNumCount = 1;
+        this.velocityRoot = new Vector2D(0, 3);
+        this.orderNumCount = 1;
         this.group = 1;
         this.random = new Random();
-        this.velocity.set(0, 3);
+        this.velocity.set(this.velocityRoot);
         int x, y;
         if (this.random.nextInt(2) == 0) {
             y = 290;
@@ -30,7 +33,7 @@ public class Grow extends GameObject {
             x = random.nextInt(31) + 575;
         }
         this.position.set(x, y);
-        this.frameCounter = new FrameCounter(2);
+        this.frameCounter = new FrameCounter(1);
     }
 
     @Override
@@ -47,13 +50,9 @@ public class Grow extends GameObject {
     }
 
     private void move() {
-        if (random.nextInt(100) < 5) {
-            int randomNum = random.nextInt(100);
-            if (randomNum < 50) {
-                this.velocity.set(this.velocity.rotate(10));
-            } else {
-                this.velocity.set(this.velocity.rotate(-10));
-            }
+        if (random.nextInt(100) < 20) {
+            int randomNum = random.nextInt(20) - 10;
+            this.velocity.set(this.velocity.rotate(randomNum));
         }
         this.position.addUp(this.velocity);
     }

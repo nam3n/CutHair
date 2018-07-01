@@ -11,7 +11,7 @@ public class Hair extends GameObject {
     public Vector2D velocity;
 
     public Hair() {
-        this.renderer = new PolygonRenderer(Color.black, 5, 3);
+        this.renderer = new PolygonRenderer(Color.black, 4, 3);
         this.velocity = new Vector2D();
     }
 
