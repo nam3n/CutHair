@@ -3,7 +3,9 @@ package base;
 import game.Grow;
 import game.Hair;
 import game.Scissor;
+import utils.Utils;
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 public class GameObjectManager {
 
     private boolean cutedGroup[] = new boolean[10000];
+    private Clip clip;
     public int scoreCount;
 
     public static GameObjectManager instance = new GameObjectManager();
@@ -82,10 +85,12 @@ public class GameObjectManager {
                 .stream()
                 .filter(gameObject -> gameObject.position.x > (object.position.x + 30))
                 .filter(gameObject -> gameObject.position.x < (object.position.x + 65))
-                .filter(gameObject -> gameObject.position.y > object.position.y)
-                .filter(gameObject -> gameObject.position.y < (object.position.y + 10))
+                .filter(gameObject -> gameObject.position.y > (object.position.y + 15))
+                .filter(gameObject -> gameObject.position.y < (object.position.y + 25))
                 .filter(gameObject -> gameObject instanceof Hair)
                 .forEach(this::down);
+        this.clip = Utils.loadAudio("resources/CutSound(mp3cut.net).wav");
+        this.clip.start();
     }
 
     private void down(GameObject object) {

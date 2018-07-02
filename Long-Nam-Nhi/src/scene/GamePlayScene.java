@@ -2,6 +2,7 @@ package scene;
 
 import base.GameObjectManager;
 import game.Background;
+import game.Grow;
 import game.GrowSpawner;
 import game.Scissor;
 import renderer.ImageRenderer;
