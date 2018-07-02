@@ -81,7 +81,7 @@ public class GameObjectManager {
         GameObjectManager.instance.list
                 .stream()
                 .filter(gameObject -> gameObject.position.x > (object.position.x + 30))
-                .filter(gameObject -> gameObject.position.x < (object.position.x + 75))
+                .filter(gameObject -> gameObject.position.x < (object.position.x + 65))
                 .filter(gameObject -> gameObject.position.y > object.position.y)
                 .filter(gameObject -> gameObject.position.y < (object.position.y + 10))
                 .filter(gameObject -> gameObject instanceof Hair)
